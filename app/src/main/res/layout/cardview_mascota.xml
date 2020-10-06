@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="10sp"
+    android:layout_marginStart="10sp"
+    android:layout_marginBottom="10sp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:id="@+id/lytPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/anna_gato"
+            android:layout_gravity="center"
+            android:contentDescription="@string/descrip_ivperfil"/>
+
+        <RelativeLayout
+            android:id="@+id/lytBarraRating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lytIzquierda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginBottom="10sp"
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/lytDerecha">
+
+                <ImageButton
+                    android:id="@+id/ibRaitear"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/icons8_dog_bone_52"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/descrip_ivraitear"/>
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_nombre"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lytDerecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="10sp"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:id="@+id/tvRaiting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10sp"
+                    android:text="@string/text_raiting"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"/>
+
+                <ImageView
+                    android:id="@+id/ivRaiting"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:src="@drawable/icons8_dog_bone_96"
+                    android:contentDescription="@string/descrip_ivraiting"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
