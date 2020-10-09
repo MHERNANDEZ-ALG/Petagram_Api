@@ -42,7 +42,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View view) {
                 holder.tvRaiting.setText(String.format("%d", mascota.getRaiting()+1));
-                Toast.makeText(activity,"Like "+mascota.getNombre(),Toast.LENGTH_SHORT).show();
             }
         });
     }

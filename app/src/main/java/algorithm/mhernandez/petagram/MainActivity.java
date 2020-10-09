@@ -3,13 +3,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        Menu myMenu = (Menu) findViewById(R.id.appbar_menu);
-        setSupportActionBar((Toolbar) myMenu);
-
         listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -34,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
         inicializarListaMascotas();
         inicializarAdaptador();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.app_bar_menu, menu);
+        return true;
+    }
+
     public void inicializarAdaptador(){
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
         listaMascotas.setAdapter(adaptador);
@@ -42,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota("Anna",R.drawable.anna_gato,0));
-        mascotas.add(new Mascota("Aron",R.drawable.aron_perro,0));
-        mascotas.add(new Mascota("Dante",R.drawable.dante_perro,0));
-        mascotas.add(new Mascota("Droid",R.drawable.droid_gato,0));
-        mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,0));
-        mascotas.add(new Mascota("Sasha",R.drawable.sasha_perro,0));
-        mascotas.add(new Mascota("Shen",R.drawable.shen_perro,0));
+        mascotas.add(new Mascota("Anna",R.drawable.anna_gato,10));
+        mascotas.add(new Mascota("Aron",R.drawable.aron_perro,15));
+        mascotas.add(new Mascota("Dante",R.drawable.dante_perro,21));
+        mascotas.add(new Mascota("Droid",R.drawable.droid_gato,33));
+        mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,14));
+        mascotas.add(new Mascota("Sasha",R.drawable.sasha_perro,8));
+        mascotas.add(new Mascota("Shen",R.drawable.shen_perro,5));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -57,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_favorite:
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.action_contact:
+                Intent intentc = new Intent(MainActivity.this, FormActivity.class);
+                startActivity(intentc);
+                return true;
+            case R.id.action_about:
+                Intent intenta = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intenta);
                 return true;
 
             default:

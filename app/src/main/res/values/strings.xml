@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Petagram</string>
     <string name="text_nombre">Nombre</string>
-    <string name="text_raiting">15</string>
+    <string name="txt_form_nombre">Nombre</string>
+    <string name="txt_form_email">Email</string>
+    <string name="txt_form_mensaje">Mensaje</string>
+    <string name="txt_form_inicio">Formulario de contacto</string>
+    <string name="txtBotonContacto">Enviar Comentario</string>
+    <string name="text_about">Acerca De</string>
+    <string name="text_contact">Contacto</string>
     <string name="descrip_ivperfil">Foto de Perfil</string>
     <string name="descrip_ivraitear">Icono me gusta</string>
     <string name="descrip_ivraiting">Icono Raiting</string>

@@ -7,8 +7,14 @@
     tools:context=".SecondActivity">
 
     <include
-        android:id="@+id/my_toolbar2"
-        layout="@layout/actionbar_2">
+        android:id="@+id/my_toolbar"
+        layout="@layout/actionbar">
     </include>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavoritos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/my_toolbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
