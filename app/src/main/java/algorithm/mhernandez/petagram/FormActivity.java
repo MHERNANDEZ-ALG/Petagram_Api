@@ -8,17 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
-import java.util.Properties;
-
-import javax.mail.Message;
 import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MailDateFormat;
-import javax.mail.internet.MimeMessage;
 
 public class FormActivity extends AppCompatActivity {
 
