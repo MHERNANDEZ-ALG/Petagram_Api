@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
@@ -45,7 +46,16 @@ public class FormActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.btnEnviarCom);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
+                Toast.makeText(FormActivity.this,"Comentario Enviado",Toast.LENGTH_LONG).show();
+                String correorem = etCorreo.getText().toString();
+                String nombreRe = etNombre.getText().toString();
+                String contenido = etMensaje.getText().toString();
+                new SendMail(correo, contraseña).execute(new SendMail.Mail(
+                        "App_Petagram", correo,
+                                "Mensaje de: " + nombreRe + correorem, contenido));
+                etCorreo.setText("");
+                etNombre.setText("");
+                etMensaje.setText("");
             }
         });
     }
