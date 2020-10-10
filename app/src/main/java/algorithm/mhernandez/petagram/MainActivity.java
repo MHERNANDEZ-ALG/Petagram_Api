@@ -1,32 +1,40 @@
 package algorithm.mhernandez.petagram;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView listaMascotas;
-    ArrayList<Mascota>  mascotas;
+
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        toolbar     = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout   = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager   = (ViewPager) findViewById(R.id.viewPager);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        setUpViewPager();
 
-        listaMascotas.setLayoutManager(llm);
-        inicializarListaMascotas();
-        inicializarAdaptador();
+        if (toolbar != null){
+            setSupportActionBar(toolbar);
+        }
     }
 
     @Override
@@ -35,22 +43,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
-        listaMascotas.setAdapter(adaptador);
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new PrincipalFragment());
+        fragments.add(new PerfilFragment());
+        return fragments;
     }
 
-    public void inicializarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-
-        mascotas.add(new Mascota("Anna",R.drawable.anna_gato,10));
-        mascotas.add(new Mascota("Aron",R.drawable.aron_perro,15));
-        mascotas.add(new Mascota("Dante",R.drawable.dante_perro,21));
-        mascotas.add(new Mascota("Droid",R.drawable.droid_gato,33));
-        mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,14));
-        mascotas.add(new Mascota("Sasha",R.drawable.sasha_perro,8));
-        mascotas.add(new Mascota("Shen",R.drawable.shen_perro,5));
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

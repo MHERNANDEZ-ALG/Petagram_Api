@@ -38,7 +38,6 @@ public class SendMail extends AsyncTask<SendMail.Mail, Void, Void> {
         for (Mail mail : mails) {
 
             try {
-
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(mail.from));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail.to));
