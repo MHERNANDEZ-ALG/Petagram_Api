@@ -13,6 +13,14 @@
     <string name="descrip_ivraiting">Icono Raiting</string>
     <string name="txt_like">Me gusta</string>
     <string name="action_favorite">Fav</string>
+    <string name="name_mascota">Aron</string>
+    <string name="name_dev">Hernandez, Miguel</string>
+    <string name="name_dep">Development Dept.</string>
+    <string name="name_country">Colombia</string>
+    <string name="name_correo">mahb880@gmail.com</string>
+    <string name="name_telefono">+57 30068875231</string>
+    <string name="name_derechos">All Rights Reserved</string>
+    <string name="name_page">http://miapp.co</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

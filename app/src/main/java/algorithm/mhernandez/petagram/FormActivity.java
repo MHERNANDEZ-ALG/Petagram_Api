@@ -1,5 +1,6 @@
 package algorithm.mhernandez.petagram;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,6 +26,11 @@ public class FormActivity extends AppCompatActivity {
 
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
+
         correo = "mhtestscode@gmail.com";
         pass = "mhtc.1991";
         etMensaje = findViewById(R.id.txtMensaje);
