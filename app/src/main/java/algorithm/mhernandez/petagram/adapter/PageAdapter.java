@@ -1,4 +1,4 @@
-package algorithm.mhernandez.petagram;
+package algorithm.mhernandez.petagram.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -9,12 +9,11 @@ import java.util.ArrayList;
 
 public class PageAdapter extends FragmentPagerAdapter {
     private ArrayList <Fragment> fragments;
-    public PageAdapter(@NonNull FragmentManager fm, ArrayList <Fragment> fragments) {
+    public PageAdapter(FragmentManager fm, ArrayList <Fragment> fragments) {
         super (fm);
         this.fragments = fragments;
     }
 
-    @NonNull
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);

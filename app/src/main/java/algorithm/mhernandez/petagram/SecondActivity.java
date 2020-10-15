@@ -10,6 +10,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import algorithm.mhernandez.petagram.adapter.MascotaAdaptador;
+import algorithm.mhernandez.petagram.pojo.Mascota;
+
 public class SecondActivity extends AppCompatActivity {
 
     private RecyclerView listaMascotasFav;
@@ -22,9 +25,11 @@ public class SecondActivity extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
         // Enable the Up button
+        assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
 
         listaMascotasFav = (RecyclerView) findViewById(R.id.rvFavoritos);
@@ -44,10 +49,10 @@ public class SecondActivity extends AppCompatActivity {
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota("Anna",R.drawable.anna_gato,10));
-        mascotas.add(new Mascota("Aron",R.drawable.aron_perro,15));
-        mascotas.add(new Mascota("Dante",R.drawable.dante_perro,21));
-        mascotas.add(new Mascota("Droid",R.drawable.droid_gato,33));
-        mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,14));
+        mascotas.add(new Mascota("Anna",R.drawable.anna_gato,        10));
+        mascotas.add(new Mascota("Aron",R.drawable.aron_perro,       15));
+        mascotas.add(new Mascota("Dante",R.drawable.dante_perro,     21));
+        mascotas.add(new Mascota("Droid",R.drawable.droid_gato,      33));
+        mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,  14));
     }
 }

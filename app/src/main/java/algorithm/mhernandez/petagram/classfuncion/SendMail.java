@@ -1,4 +1,4 @@
-package algorithm.mhernandez.petagram;
+package algorithm.mhernandez.petagram.classfuncion;
 
 import android.os.AsyncTask;
 import android.util.Log;

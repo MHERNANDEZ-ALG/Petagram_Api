@@ -12,6 +12,11 @@ import android.view.MenuItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.Objects;
+
+import algorithm.mhernandez.petagram.adapter.PageAdapter;
+import algorithm.mhernandez.petagram.fragment.PerfilFragment;
+import algorithm.mhernandez.petagram.fragment.PrincipalFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_doggy);
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_home);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_doggy);
     }
 
 

@@ -1,4 +1,4 @@
-package algorithm.mhernandez.petagram;
+package algorithm.mhernandez.petagram.pojo;
 
 public class Perfil {
     private int foto;

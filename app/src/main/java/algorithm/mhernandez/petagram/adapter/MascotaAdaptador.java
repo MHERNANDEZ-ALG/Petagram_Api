@@ -1,6 +1,5 @@
-package algorithm.mhernandez.petagram;
+package algorithm.mhernandez.petagram.adapter;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import algorithm.mhernandez.petagram.db.ContructorMascotas;
+import algorithm.mhernandez.petagram.pojo.Mascota;
+import algorithm.mhernandez.petagram.R;
 
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder>{
     ArrayList <Mascota> mascotas;
@@ -32,11 +36,14 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
         holder.ivPerfil.setImageResource(mascota.getFoto());
         holder.tvNombre.setText(mascota.getNombre());
-        holder.tvRaiting.setText(String.format("%d", mascota.getRaiting()));
+        holder.tvRaiting.setText(String.valueOf(mascota.getRaiting()));
         holder.ibRaitear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.tvRaiting.setText(String.format("%d", mascota.getRaiting()+1));
+                Toast.makeText(activity, "Like"+mascota.getNombre(),Toast.LENGTH_LONG).show();
+                ContructorMascotas contructorMascotas = new ContructorMascotas(activity);
+                contructorMascotas.raitearMascota(mascota);
+                holder.tvRaiting.setText(String.valueOf(contructorMascotas.obtenerRaitingMascota(mascota)));
             }
         });
     }

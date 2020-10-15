@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import algorithm.mhernandez.petagram.classfuncion.SendMail;
+
 public class FormActivity extends AppCompatActivity {
 
     String correo = "mhtestscode@gmail.com";

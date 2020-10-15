@@ -1,4 +1,4 @@
-package algorithm.mhernandez.petagram;
+package algorithm.mhernandez.petagram.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import algorithm.mhernandez.petagram.pojo.Perfil;
+import algorithm.mhernandez.petagram.R;
 
 public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.PerfilViewHolder>{
     ArrayList <Perfil> perfils;
@@ -29,7 +32,7 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
         final Perfil perfil = perfils.get(position);
 
         holder.ivPerfil.setImageResource(perfil.getFoto());
-        holder.tvRaiting.setText(String.format("%d", perfil.getRaiting()));
+        holder.tvRaiting.setText(String.valueOf(perfil.getRaiting()));
     }
     @Override
     public int getItemCount() {
