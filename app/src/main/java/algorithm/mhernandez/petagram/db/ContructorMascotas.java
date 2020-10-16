@@ -16,6 +16,10 @@ public class ContructorMascotas {
         this.context = context;
     }
 
+    public ArrayList<Mascota> ObtenerDatosFav(){
+        BaseDatos db = new BaseDatos(context);
+        return db.obtenerMascotasFav();
+    }
     public ArrayList<Mascota> ObtenerDatos() {
 
         BaseDatos db = new BaseDatos(context);

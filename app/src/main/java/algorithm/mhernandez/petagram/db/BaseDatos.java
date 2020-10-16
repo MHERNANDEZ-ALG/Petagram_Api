@@ -45,6 +45,38 @@ public class BaseDatos extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public ArrayList<Mascota> obtenerMascotasFav() {
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+        String query = "SELECT * FROM " + ConstantesBaseDatos.TABLE_MASCOTAS;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor registros = db.rawQuery(query, null);
+
+        while (registros.moveToNext()) {
+            Mascota mascotaActual = new Mascota();
+            mascotaActual.setId(registros.getInt(0));
+            mascotaActual.setNombre(registros.getString(1));
+            mascotaActual.setFoto(registros.getInt(2));
+
+            String queryRaiting = "SELECT COUNT("+ConstantesBaseDatos.TABLE_RATING_LIKES+")" +
+                    " FROM " + ConstantesBaseDatos.TABLE_RATING +
+                    " WHERE " + ConstantesBaseDatos.TABLE_RATING_ID_MASCOTA + "=" + mascotaActual.getId();
+            Cursor registrosLike = db.rawQuery(queryRaiting, null);
+
+            if (registrosLike.moveToNext()) {
+                mascotaActual.setRaiting(registrosLike.getInt(0));
+            }else{
+                mascotaActual.setRaiting(0);
+            }
+            if(mascotaActual.getRaiting()>0){
+                mascotas.add(mascotaActual);
+            }
+        }
+
+        db.close();
+
+        return mascotas;
+    }
+
     public ArrayList<Mascota> obtenerTodasLasMascotas() {
         ArrayList<Mascota> mascotas = new ArrayList<>();
         String query = "SELECT * FROM " + ConstantesBaseDatos.TABLE_MASCOTAS;

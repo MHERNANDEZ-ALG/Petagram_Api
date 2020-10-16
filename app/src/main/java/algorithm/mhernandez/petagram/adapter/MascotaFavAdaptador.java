@@ -14,38 +14,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import algorithm.mhernandez.petagram.R;
 import algorithm.mhernandez.petagram.db.ContructorMascotas;
 import algorithm.mhernandez.petagram.pojo.Mascota;
-import algorithm.mhernandez.petagram.R;
 
-public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder>{
-    ArrayList <Mascota> mascotas;
+public class MascotaFavAdaptador extends RecyclerView.Adapter<MascotaFavAdaptador.MascotaFavViewHolder> {
+    ArrayList<Mascota> mascotas;
     Activity activity;
-    public MascotaAdaptador(ArrayList<Mascota> mascotas, Activity activity){
+    public MascotaFavAdaptador(ArrayList<Mascota> mascotas, Activity activity){
         this.mascotas = mascotas;
         this.activity = activity;
     }
     @Override
-    public MascotaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MascotaFavViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota, parent, false);
-        return new MascotaViewHolder(v);
+        return new MascotaFavViewHolder(v);
     }
+
     @Override
-    public void onBindViewHolder(@NonNull final MascotaViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MascotaFavViewHolder holder, int position) {
         final Mascota mascota = mascotas.get(position);
 
         holder.ivPerfil.setImageResource(mascota.getFoto());
         holder.tvNombre.setText(mascota.getNombre());
         holder.tvRaiting.setText(String.valueOf(mascota.getRaiting()));
-        holder.ibRaitear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(activity, "Like"+mascota.getNombre(),Toast.LENGTH_SHORT).show();
-                ContructorMascotas contructorMascotas = new ContructorMascotas(activity);
-                contructorMascotas.raitearMascota(mascota);
-                holder.tvRaiting.setText(String.valueOf(contructorMascotas.obtenerRaitingMascota(mascota)));
-            }
-        });
     }
 
     @Override
@@ -53,12 +45,12 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         return mascotas.size();
     }
 
-    public static class MascotaViewHolder extends RecyclerView.ViewHolder {
+    public class MascotaFavViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivPerfil;
         private TextView tvNombre;
         private ImageButton ibRaitear;
         private TextView tvRaiting;
-        public MascotaViewHolder(View itemView) {
+        public MascotaFavViewHolder(View itemView) {
             super(itemView);
             ivPerfil = (ImageView) itemView.findViewById(R.id.ivPerfil);
             tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
@@ -66,5 +58,4 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             tvRaiting = (TextView) itemView.findViewById(R.id.tvRaiting);
         }
     }
-
 }

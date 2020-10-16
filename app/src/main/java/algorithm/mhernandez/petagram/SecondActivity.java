@@ -6,17 +6,29 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
 import algorithm.mhernandez.petagram.adapter.MascotaAdaptador;
+import algorithm.mhernandez.petagram.adapter.MascotaFavAdaptador;
+import algorithm.mhernandez.petagram.db.ContructorMascotas;
+import algorithm.mhernandez.petagram.fragment.IPrincipalFragment;
 import algorithm.mhernandez.petagram.pojo.Mascota;
+import algorithm.mhernandez.petagram.presentador.IPrincipalFragmentPresentador;
+import algorithm.mhernandez.petagram.presentador.ISecondActivityPresentador;
+import algorithm.mhernandez.petagram.presentador.PrincipalFragmentPresentador;
+import algorithm.mhernandez.petagram.presentador.SecondActivityPresentador;
 
-public class SecondActivity extends AppCompatActivity {
-
+public class SecondActivity extends AppCompatActivity implements ISecondActivity {
     private RecyclerView listaMascotasFav;
-    ArrayList<Mascota> mascotas;
+    private ArrayList<Mascota> mascotas;
+    //private IPrincipalFragmentPresentador presentador;
+    private ISecondActivityPresentador presentator;
+    public SecondActivity() {
+        // Required empty public constructor
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +45,34 @@ public class SecondActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         listaMascotasFav = (RecyclerView) findViewById(R.id.rvFavoritos);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaMascotasFav.setLayoutManager(llm);
-        inicializarListaMascotas();
-        inicializarAdaptador();
+        //presentador = new PrincipalFragmentPresentador(this, this);
+        presentator = new SecondActivityPresentador(this, this);
+        //inicializarListaMascotas();
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
+    @Override
+    public void generarLinearLayoutVertical() {
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaMascotasFav.setLayoutManager(llm);
+    }
+
+    @Override
+    public MascotaFavAdaptador crearAdaptadorMascota(ArrayList<Mascota> mascotas) {
+        MascotaFavAdaptador adaptador = new MascotaFavAdaptador(mascotas, this);
+        return adaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorMascota(MascotaFavAdaptador adaptador) {
         listaMascotasFav.setAdapter(adaptador);
     }
 
+    /*
     public void inicializarListaMascotas(){
         mascotas = new ArrayList<Mascota>();
+
+
 
         mascotas.add(new Mascota("Anna",R.drawable.anna_gato,        10));
         mascotas.add(new Mascota("Aron",R.drawable.aron_perro,       15));
@@ -55,4 +80,5 @@ public class SecondActivity extends AppCompatActivity {
         mascotas.add(new Mascota("Droid",R.drawable.droid_gato,      33));
         mascotas.add(new Mascota("Jacobs",R.drawable.jacobs_conejo,  14));
     }
+     */
 }
