@@ -16,7 +16,14 @@ public class PrincipalFragmentPresentador implements IPrincipalFragmentPresentad
     public PrincipalFragmentPresentador(IPrincipalFragment iPrincipalFragment, Context context) {
         this.iPrincipalFragment = iPrincipalFragment;
         this.context = context;
+        ingresarDatosBD();
         obtenerDatosBD();
+    }
+
+    @Override
+    public void ingresarDatosBD() {
+        contructorMascotas = new ContructorMascotas(context);
+        contructorMascotas.ingresarDatos();
     }
 
     @Override

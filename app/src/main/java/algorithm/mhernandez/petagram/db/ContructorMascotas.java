@@ -21,10 +21,14 @@ public class ContructorMascotas {
         return db.obtenerMascotasFav();
     }
     public ArrayList<Mascota> ObtenerDatos() {
+        BaseDatos db = new BaseDatos(context);
+        //insertarVariosDatos(db);
+        return db.obtenerTodasLasMascotas();
+    }
 
+    public void ingresarDatos(){
         BaseDatos db = new BaseDatos(context);
         insertarVariosDatos(db);
-        return db.obtenerTodasLasMascotas();
     }
 
     public void insertarVariosDatos(BaseDatos db) {
