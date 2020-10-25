@@ -16,9 +16,7 @@ import algorithm.mhernandez.petagram.pojo.Perfil;
 import algorithm.mhernandez.petagram.adapter.PerfilAdaptador;
 import algorithm.mhernandez.petagram.R;
 import algorithm.mhernandez.petagram.presentador.IPerfilFragmentPresentador;
-import algorithm.mhernandez.petagram.presentador.IPrincipalFragmentPresentador;
 import algorithm.mhernandez.petagram.presentador.PerfilFragmentPresentador;
-import algorithm.mhernandez.petagram.presentador.PrincipalFragmentPresentador;
 
 public class PerfilFragment extends Fragment implements IPerfilFragment {
     private RecyclerView listaFotosP;
@@ -37,7 +35,7 @@ public class PerfilFragment extends Fragment implements IPerfilFragment {
     }
     
     @Override
-    public void generarLinearLayoutGrind() {
+    public void generarGridLayout() {
         GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
         listaFotosP.setLayoutManager(glm);
     }

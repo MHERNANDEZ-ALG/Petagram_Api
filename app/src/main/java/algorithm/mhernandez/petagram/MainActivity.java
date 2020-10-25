@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intenta = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intenta);
                 return true;
+            case R.id.action_config:
+                Intent intentco = new Intent(MainActivity.this, ConfigCuenta.class);
+                startActivity(intentco);
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.

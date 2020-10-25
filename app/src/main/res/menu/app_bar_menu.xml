@@ -19,4 +19,8 @@
         android:orderInCategory="102"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/action_config"
+        android:title="@string/text_config"
+        android:orderInCategory="103"
+        app:showAsAction="never"/>
 </menu>

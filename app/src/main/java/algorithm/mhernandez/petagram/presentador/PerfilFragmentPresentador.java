@@ -1,6 +1,10 @@
 package algorithm.mhernandez.petagram.presentador;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,8 @@ public class PerfilFragmentPresentador implements IPerfilFragmentPresentador{
         this.iPerfilFragment = iPerfilFragment;
         this.context = context;
         obtenerDatosBD();
+        //obtenerPerfilMedios();
+        mostrarDatosRV();
     }
 
     @Override
@@ -26,10 +32,55 @@ public class PerfilFragmentPresentador implements IPerfilFragmentPresentador{
         perfils = constructorPerfil.ObtenerDatos();
         mostrarDatosRV();
     }
+    /*
+    @Override
+    public void obtenerPerfilMedios() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        Gson gsonMedia = restApiAdapter.ConstruyeGsonDesererializadorMedia();
+        EndPointsApi endPointsApi = restApiAdapter.establecerConexionApiInstagram(gsonMedia);
+        Call<PerfilMediaResponse> perfilMediaResponseCall = endPointsApi.getPerfilMedia();
+
+        perfilMediaResponseCall.enqueue(new Callback<PerfilMediaResponse>() {
+            @Override
+            public void onResponse(Call<PerfilMediaResponse> call, Response<PerfilMediaResponse> response) {
+                PerfilMediaResponse perfilMediaResponse = response.body();
+                perfils = perfilMediaResponse.getPerfilMedia();
+            }
+
+            @Override
+            public void onFailure(Call<PerfilMediaResponse> call, Throwable t) {
+                Toast.makeText(context,"Fallo conexion",Toast.LENGTH_SHORT).show();
+                Log.e("Fallo la conexion", t.toString());
+            }
+        });
+    }
+     */
+    /*
+    @Override
+    public void obtenerIdMedios() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        EndPointsApi endPointsApi = restApiAdapter.establecerConexionApiInstagram();
+        Call<PerfilMediaResponse> perfilMediaResponseCall = endPointsApi.getPerfilMedia();
+
+        perfilMediaResponseCall.enqueue(new Callback<PerfilMediaResponse>() {
+            @Override
+            public void onResponse(Call<PerfilMediaResponse> call, Response<PerfilMediaResponse> response) {
+                PerfilMediaResponse perfilMediaResponse = response.body();
+                perfils = perfilMediaResponse.getPerfilMedia();
+            }
+
+            @Override
+            public void onFailure(Call<PerfilMediaResponse> call, Throwable t) {
+                Toast.makeText(context,"Fallo conexion",Toast.LENGTH_SHORT).show();
+                Log.e("Fallo la conexion", t.toString());
+            }
+        });
+    }
+     */
 
     @Override
     public void mostrarDatosRV() {
         iPerfilFragment.inicializarAdaptadorPerfil(iPerfilFragment.crearAdaptadorPerfil(perfils));
-        iPerfilFragment.generarLinearLayoutGrind();
+        iPerfilFragment.generarGridLayout();
     }
 }

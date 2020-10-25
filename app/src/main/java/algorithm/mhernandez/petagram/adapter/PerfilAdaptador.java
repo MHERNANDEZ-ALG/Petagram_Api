@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import algorithm.mhernandez.petagram.pojo.Perfil;
@@ -23,14 +25,19 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
         this.activity = activity;
     }
     @Override
-    public PerfilViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PerfilViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_perfil, parent, false);
         return new PerfilViewHolder(v);
     }
     @Override
-    public void onBindViewHolder(@NonNull PerfilViewHolder holder, int position) {
+    public void onBindViewHolder(final PerfilViewHolder holder, int position) {
         final Perfil perfil = perfils.get(position);
-
+        /*
+        Picasso.with(activity)
+                .load(perfil.getUrlfoto())
+                .placeholder(R.drawable.aron_perro)
+                .into(holder.ivPerfil);
+         */
         holder.ivPerfil.setImageResource(perfil.getFoto());
         holder.tvRaiting.setText(String.valueOf(perfil.getRaiting()));
     }

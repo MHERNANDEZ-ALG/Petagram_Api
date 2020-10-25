@@ -6,19 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import algorithm.mhernandez.petagram.adapter.MascotaAdaptador;
 import algorithm.mhernandez.petagram.adapter.MascotaFavAdaptador;
-import algorithm.mhernandez.petagram.db.ContructorMascotas;
-import algorithm.mhernandez.petagram.fragment.IPrincipalFragment;
 import algorithm.mhernandez.petagram.pojo.Mascota;
-import algorithm.mhernandez.petagram.presentador.IPrincipalFragmentPresentador;
 import algorithm.mhernandez.petagram.presentador.ISecondActivityPresentador;
-import algorithm.mhernandez.petagram.presentador.PrincipalFragmentPresentador;
 import algorithm.mhernandez.petagram.presentador.SecondActivityPresentador;
 
 public class SecondActivity extends AppCompatActivity implements ISecondActivity {

@@ -46,12 +46,10 @@ public class ContructorMascotas {
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_FOTO, R.drawable.dante_perro);
         db.insertarMascota(contentValues);
 
+
+
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_NOMBRE, "Droid");
         contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_FOTO, R.drawable.droid_gato);
-        db.insertarMascota(contentValues);
-
-        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_NOMBRE, "Shen");
-        contentValues.put(ConstantesBaseDatos.TABLE_MASCOTAS_FOTO, R.drawable.shen_perro);
         db.insertarMascota(contentValues);
     }
 

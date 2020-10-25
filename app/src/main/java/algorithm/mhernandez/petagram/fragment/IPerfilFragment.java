@@ -7,7 +7,7 @@ import algorithm.mhernandez.petagram.pojo.Perfil;
 
 public interface IPerfilFragment {
 
-    public void generarLinearLayoutGrind();
+    public void generarGridLayout();
 
     public PerfilAdaptador crearAdaptadorPerfil(ArrayList<Perfil> perfils);
 
