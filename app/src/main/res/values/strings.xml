@@ -7,6 +7,7 @@
     <string name="txt_form_inicio">Formulario de contacto</string>
     <string name="txtBotonContacto">Enviar Comentario</string>
     <string name="text_about">Acerca De</string>
+    <string name="text_notify">Recibir Notificacion</string>
     <string name="text_config">Configurar Cuenta</string>
     <string name="text_contact">Contacto</string>
     <string name="descrip_ivperfil">Foto de Perfil</string>
@@ -24,5 +25,5 @@
     <string name="name_page">http://miapp.co</string>
     <string name="config_cuenta">Escribe tu usuario</string>
     <string name="guardar_cuenta">Guardar Cuenta</string>
-
+    <string name="name_app_insta">"@"_artattic_</string>
 </resources>

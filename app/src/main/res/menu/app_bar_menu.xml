@@ -23,4 +23,9 @@
         android:title="@string/text_config"
         android:orderInCategory="103"
         app:showAsAction="never"/>
+
+    <item android:id="@+id/action_notif"
+        android:title="@string/text_notify"
+        android:orderInCategory="103"
+        app:showAsAction="never"/>
 </menu>

@@ -16,15 +16,22 @@ public class ConstructorPerfil {
 
     public ArrayList<Perfil> ObtenerDatos(){
         ArrayList <Perfil> perfils = new ArrayList<>();
-        perfils.add(new Perfil(201, R.drawable.aron_perro));
-        perfils.add(new Perfil(213, R.drawable.mipet1));
-        perfils.add(new Perfil(154, R.drawable.mipet2));
-        perfils.add(new Perfil(152, R.drawable.mipet3));
-        perfils.add(new Perfil(142, R.drawable.mipet4));
-        perfils.add(new Perfil(144, R.drawable.mipet5));
-        perfils.add(new Perfil(135, R.drawable.mipet6));
-        perfils.add(new Perfil(102, R.drawable.mipet7));
-        perfils.add(new Perfil(201, R.drawable.mipet8));
+        perfils.add(new Perfil(8, R.drawable.insta1));
+        perfils.add(new Perfil(8, R.drawable.i2));
+        perfils.add(new Perfil(9, R.drawable.i3));
+        perfils.add(new Perfil(14, R.drawable.i4));
+        perfils.add(new Perfil(15, R.drawable.i5));
+        perfils.add(new Perfil(11, R.drawable.i6));
+        perfils.add(new Perfil(2, R.drawable.i7));
+        perfils.add(new Perfil(2, R.drawable.i8));
+        perfils.add(new Perfil(2, R.drawable.i9));
+        perfils.add(new Perfil(2, R.drawable.i10));
+        perfils.add(new Perfil(2, R.drawable.i11));
+        perfils.add(new Perfil(2, R.drawable.i12));
+        perfils.add(new Perfil(2, R.drawable.i13));
+        perfils.add(new Perfil(2, R.drawable.i14));
+        perfils.add(new Perfil(2, R.drawable.i15));
+
         return perfils;
     }
 }

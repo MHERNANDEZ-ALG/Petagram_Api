@@ -29,12 +29,13 @@
             android:layout_gravity="center_horizontal"/>
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tvCuentaConf"
+            android:id="@+id/etCuentaConf"
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:hint="@string/config_cuenta"/>
 
         <Button
+            android:id="@+id/btnGuardarC"
             android:layout_width="wrap_content"
             android:layout_height="60sp"
             android:text="@string/guardar_cuenta"

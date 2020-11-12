@@ -48,7 +48,7 @@ public class FormActivity extends AppCompatActivity {
                 String contenido = etMensaje.getText().toString();
                 new SendMail(correo, pass).execute(new SendMail.Mail(
                         "App_Petagram", correo,
-                                "Mensaje de: " + nombreRe + correorem, contenido));
+                                "Mensaje de: " + nombreRe + " " + correorem, contenido));
                 etCorreo.setText("");
                 etNombre.setText("");
                 etMensaje.setText("");
